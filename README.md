@@ -19,5 +19,5 @@
 Run llm.py:
 - pip install openai
 - python llm.py
-## we are unable to add the api key to this github for security reasons
+## we are unable to add the openai api key to this github for security reasons
 ## we had been attempting to connect llm.py and popup.js but are still in the debugging phase
