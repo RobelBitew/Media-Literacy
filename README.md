@@ -15,3 +15,9 @@
 
 - if you can't scan any texts then right click on page and click inspect.
 - refresh the page to see that script is running, then try scan again
+
+Run llm.py:
+- pip install openai
+- python llm.py
+## we are unable to add the api key to this github for security reasons
+## we had been attempting to connect llm.py and popup.js but are still in the debugging phase
