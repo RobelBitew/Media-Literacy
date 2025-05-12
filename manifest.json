@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Post Analyzer",
+  "version": "1.0",
+  "description": "Analyze social media posts and show results in a popup.",
+
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*",
+        "https://x.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png"
+    }
+  },
+
+  "icons": {
+    "16": "icon.png"
+  }
+}
