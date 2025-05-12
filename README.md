@@ -1,14 +1,15 @@
 # Media-Literacy
 
-- Extracts texts such as captions and comments from post articles
+- Extracts texts such as captions and comments from posts
+- popup display to show text
 - Use on Instagram and X for now
 
 ## Steps to use extension for Microsoft Edge
 
 1. clone repo
-2. Go to edge://extensions/ and turn on Developer mode on located on the right side
-3. click Load unpacked and select the folder containing git files
-4. now the extension can be found on the toolbar.
+2. Go to edge://extensions/ and turn on Developer mode (found on the right column)
+3. click Load unpacked and select the folder containing the git files you cloned
+4. now the extension can be found on the toolbar. click scan to see texts from user posts
 
 ## may run into problems
 
