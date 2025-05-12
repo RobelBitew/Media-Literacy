@@ -1,0 +1,1 @@
+So far this only deals with extracting raw text from media articles, not processing that information for analysis. Functions and design ideas that was brought up in interviews have not been implemented yet.
