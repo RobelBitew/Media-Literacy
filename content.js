@@ -4,7 +4,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "scan_posts") {
     console.log("Received 'scan_posts' message, trying to scan posts...");
 
-    // Helper to extract posts text
+    // extract articles(posts)
     const extractPosts = () => {
       const articles = document.querySelectorAll('article');
       if (articles.length === 0) {
@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       return texts;
     };
 
-    // Try immediate extraction, if nothing found, wait a bit and try again
+    //wait and scan
     let texts = extractPosts();
     if (texts.length > 0) {
       sendResponse({ posts: texts });
@@ -27,7 +27,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }, 1000);
     }
 
-    // Important: Keep the response open (async)
     return true;
   }
 });
