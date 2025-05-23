@@ -21,3 +21,9 @@ Run llm.py:
 - python llm.py
 ## we are unable to add the openai api key to this github for security reasons
 ## we had been attempting to connect llm.py and popup.js but are still in the debugging phase
+
+## Steps to run backend
+- pip install -r requirements.txt
+- Then from FastAPI/app dir. run uvicorn main:app --reload
+    ## Optional
+    - Navigate to http://127.0.0.1:8000/docs to view endpoints

@@ -1,14 +1,18 @@
 from fastapi import APIRouter, HTTPException, Form
-#from app.scraper 
 import instaloader
 import os
 import logging
+from pydantic import BaseModel
+from analysis import analyze_sentiment
 
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+class TextInput(BaseModel):
+    text: str
 
 if not logger.handlers:
     ch = logging.StreamHandler()
@@ -55,3 +59,13 @@ def get_followees(username: str):
     except Exception as e:
         logger.error(f"Follower fetch failed: {username} threw bot flag")
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/analyze")
+async def analyze_text(data: TextInput):
+    try:
+        sentiment = analyze_sentiment(data.text)
+        logger.info(f"Sentiment analyzed: {sentiment}")
+        return {"sentiment": sentiment}
+    except Exception as e:
+        logger.error(f"Sentiment analysis failed: {e}")
+        raise HTTPException(status_code=500, detail="Sentiment analysis failed.")

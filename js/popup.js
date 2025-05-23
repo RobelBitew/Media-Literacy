@@ -16,3 +16,10 @@ document.getElementById('scanBtn').addEventListener('click', () => {
     });
   });
 });
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.sentiment && message.original) {
+    const sentimentDiv = document.getElementById('sentiment');
+    sentimentDiv.textContent = `First Post Sentiment: ${message.sentiment}`;
+  }
+});
