@@ -32,28 +32,39 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     };
     //wait and scan
     let texts = extractPosts();
-    if (texts.length > 0) {
-      // Analyze just first post for now
-      analyzeSentiment(texts[0]).then(sentiment => {
-        console.log(`Sentiment of first post: ${sentiment}`);
-        chrome.runtime.sendMessage({ sentiment: sentiment, original: texts[0] });
-        sendResponse({ posts: texts, sentiment: sentiment }); 
+    const getFirstSentence = (text) => {
+      const match = text.match(/.*?[.?!](\s|$)/);
+      return match ? match[0].trim() : text.slice(0, 100) + '...';
+    };
+    
+    const processPosts = (postTexts) => {
+      const first3 = postTexts.slice(0, 3);
+      Promise.all(
+        first3.map(async (text) => {
+          const sentence = getFirstSentence(text);
+          const sentiment = await analyzeSentiment(sentence);
+          return { sentence, sentiment };
+        })
+      ).then(results => {
+        chrome.runtime.sendMessage({ scanResults: results });
+        sendResponse({ posts: results });
       });
+    };
+    
+    if (texts.length > 0) {
+      processPosts(texts);
     } else {
       console.log("Trying again in 1 second...");
       setTimeout(() => {
         texts = extractPosts();
         if (texts.length > 0) {
-          analyzeSentiment(texts[0]).then(sentiment => {
-            console.log(`Sentiment of first post (retry): ${sentiment}`);
-            chrome.runtime.sendMessage({ sentiment: sentiment, original: texts[0] });
-            sendResponse({ posts: texts, sentiment: sentiment });
-          });
+          processPosts(texts);
         } else {
           sendResponse({ posts: [], sentiment: "none" });
         }
       }, 1000);
     }
+    
 
     return true;
   }
