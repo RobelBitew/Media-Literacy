@@ -41,12 +41,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       const first3 = postTexts.slice(0, 3);
       Promise.all(
         first3.map(async (text) => {
+          const fullText = text;
           const sentence = getFirstSentence(text);
           const sentiment = await analyzeSentiment(sentence);
-          return { sentence, sentiment };
+          return { sentence, sentiment, fullText};
         })
       ).then(results => {
-        chrome.runtime.sendMessage({ scanResults: results });
+        //chrome.runtime.sendMessage({ scanResults: results });
         sendResponse({ posts: results });
       });
     };

@@ -4,6 +4,9 @@ import os
 import logging
 from pydantic import BaseModel
 from analysis import analyze_sentiment
+from transformers import pipeline
+
+insight_pipeline = pipeline("text2text-generation", model="google/flan-t5-base")
 
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -69,3 +72,19 @@ async def analyze_text(data: TextInput):
     except Exception as e:
         logger.error(f"Sentiment analysis failed: {e}")
         raise HTTPException(status_code=500, detail="Sentiment analysis failed.")
+    
+@router.post("/insight")
+async def insight(data: TextInput):
+    #logger.info(f"Insight request text: {data.text[:100]}...")
+    try:
+        logger.info(f"Insight input: {data}")
+        prompt = (
+            "You are an expert social media analyst. Your job is to say if a post is political or not political and provide a super short summary:"
+            f"Post: {data.text}\n"
+        )
+        result = insight_pipeline(prompt, max_new_tokens=250)[0]["generated_text"]
+        logger.info(f"Insight output: {result}")
+        return {"insight": result}
+    except Exception as e:
+        logger.error(f"Insight generation failed: {e}")
+        raise HTTPException(status_code=500, detail="Insight generation failed.")
