@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    border: 5px solid black;
+}
+
+.SDG img {
+    max-width: 40%;
+    height: auto;
+}
+
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 10px 0;
+}
+
+nav a {
+    padding: 10px;
+    width: auto;
+    margin: 5px;
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav li {
+    display: block;
+    margin-bottom: 5px;
+}
