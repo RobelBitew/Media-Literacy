@@ -43,3 +43,22 @@ nav li {
 h2 {
     text-align: center;
 }
+
+.info h3 {
+    position: relative;
+    text-align: center;
+}
+
+.info p {
+    position: relative;
+    text-align: center;
+}
+
+.about {
+    background-color: white;
+}
+
+.faqs {
+    background-color: white;
+    padding: 10px;
+}
