@@ -1,5 +1,5 @@
 //poll
-const controlScore = 0.79;
+const controlScore = 0.15;
 const authoritarianScore = 0.17;
 
 let poll = {
