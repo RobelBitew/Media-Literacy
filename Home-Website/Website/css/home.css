@@ -16,11 +16,20 @@ body {
 .SDG-image {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-content: center;
-    align-items: left;
+    place-items: center;
 
 
 }
+main .column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+}
+main .column img{
+    width: 80%;
+    max-width: unset;
+}
+
 
 h1 {
     text-align: center;
@@ -28,6 +37,10 @@ h1 {
     color: white;
     padding: 15px;
     border: 5px solid black;
+}
+h3{
+    text-align: center;
+
 }
 
 img {
@@ -70,6 +83,11 @@ h2 {
 .info h3 {
     position: relative;
     text-align: center;
+}
+.h3{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start; 
 }
 
 .info p {
