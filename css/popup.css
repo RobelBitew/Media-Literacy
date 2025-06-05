@@ -75,19 +75,24 @@ li {
 /* poll */
 .poll{
   margin-top: 20px;
-  width: 400px;
+  width: 350px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 20px 5px rgba(35, 30, 128, 0.05);
 }
 
 .poll .question{
-  padding: 20px;
+  padding: 18px;
   color: #111;
   font-size: 16px;
+  font-weight: bold;
   border-bottom: 1px solid #eee;
 }
 .poll .answers{
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 20px;
 }
 .poll .answers .answer {
@@ -103,10 +108,32 @@ li {
   cursor: pointer;
   overflow: hidden;
 }
-.poll .answers .answer.selected{
+.poll .answer.selected{
   border: 2px solid #8f9fe8;
+  background-color: #eef1ff;
 }
+.answers .text{
+  position: relative;
+  z-index: 1;
+}
+.poll .percentage-value{
+  position: relative;
+  color: #111;
+  float: right;
+  z-index: 1;
+}
+.poll .percentage-bar{
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 0%;
+  background-color: #d0d8ff;
+  transition: width 0.4s ease;
 
+}
 
 li {
   margin-bottom: 10px;
