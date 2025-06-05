@@ -4,3 +4,7 @@ instaloader
 transformers
 torch
 pydantic
+nltk
+scikit-learn
+matplotlib
+wordcloud

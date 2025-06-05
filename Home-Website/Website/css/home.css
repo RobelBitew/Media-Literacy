@@ -111,3 +111,11 @@ h2 {
 .podcasts {
     text-align: center;
 }
+/* footer */
+footer h1 {
+    text-align: left;
+    font-size: medium;
+}
+footer h4{
+    text-align: center;
+}
