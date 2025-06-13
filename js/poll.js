@@ -4,7 +4,7 @@ const authoritarianScore = 0.17;
 
 let poll = {
   question: "Corpus",
-  answers: ["Control Similarity", "Authoritarian Similarity"],
+  answers: ["Democratic", "Authoritarian"],
   percentage: [controlScore, authoritarianScore],
 };
 
