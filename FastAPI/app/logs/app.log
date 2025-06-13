@@ -531,3 +531,14 @@
 2025-06-04 18:22:53,867 - INFO - Sentiment analyzed: NEGATIVE
 2025-06-04 18:22:54,031 - INFO - Sentiment analyzed: POSITIVE
 2025-06-04 18:22:54,215 - INFO - Sentiment analyzed: NEGATIVE
+2025-06-12 20:28:18,963 - INFO - Sentiment analyzed: POSITIVE
+2025-06-12 20:28:19,262 - INFO - Sentiment analyzed: NEGATIVE
+2025-06-12 20:28:19,413 - INFO - Sentiment analyzed: NEGATIVE
+2025-06-12 20:28:22,668 - INFO - Insight input: text='Alan Watts\n@AlanWattsDaily\n·\n23h\nWhen we listen to music we are not listening to the past, we are not listening to the future, we are listening to an expanded present.\n6\n57\n265\n14K'
+2025-06-12 20:28:27,704 - INFO - Insight output: Not political
+2025-06-12 20:28:31,072 - INFO - Insight input: text='Alan Watts\n@AlanWattsDaily\n·\n23h\nWhen we listen to music we are not listening to the past, we are not listening to the future, we are listening to an expanded present.\n6\n57\n265\n14K'
+2025-06-12 20:28:34,483 - INFO - Insight output: Not political
+2025-06-12 20:28:34,487 - INFO - Insight input: text='SABA\n@sabaPIVOT\n·\nJun 11\nATL don’t owe me nothing \n7\n28\n348\n8.6K'
+2025-06-12 20:28:37,610 - INFO - Insight output: Not political
+2025-06-12 20:28:37,615 - INFO - Insight input: text='Displate\n@Displate\nAd\nWhich path will you choose? Get officially licensed STAR WARS™ metal posters for your home planet!\nMetal Posters\nFrom displate.com\n46\n46\n500\n2.4M'
+2025-06-12 20:28:39,563 - INFO - Insight output: Not political
